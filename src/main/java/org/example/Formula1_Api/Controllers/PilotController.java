@@ -1,8 +1,9 @@
 package org.example.Formula1_Api.Controllers;
 
-import org.example.Formula1_Api.DTOs.PilotRequestDTO;
+import org.example.Formula1_Api.DTOs.pilotRequestDTO;
 import org.example.Formula1_Api.DTOs.PilotResponseDTO;
-import org.example.Formula1_Api.PilotServices.PilotServices;
+
+import org.example.Formula1_Api.Services.PilotServices;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class PilotController {
     }
 
     @PutMapping ("/pilots/")
-    public ResponseEntity<PilotResponseDTO> updatePilot (@PathVariable int nro, @RequestBody PilotRequestDTO pilotRequestDTO){
+    public ResponseEntity<PilotResponseDTO> updatePilot (@PathVariable int nro, @RequestBody pilotRequestDTO pilotRequestDTO){
         try {
             PilotResponseDTO updatePilot = pilotServices.updatePilot(pilotRequestDTO, (long) nro);
             return ResponseEntity.ok(updatePilot);
